@@ -8,6 +8,7 @@ if [ ! -d src ] && [ -d src-init ]; then
 fi
 
 mkdir -p src
+mkdir -p src/public
 
 if [ ! -f src/index.html ]; then
   cat > src/index.html <<'EOF'
@@ -25,4 +26,11 @@ if [ ! -f src/index.html ]; then
 EOF
 fi
 
-exec serve -s dist -l 5173
+cd src
+npx ng build --configuration development
+
+if [ -d dist/angular/browser ]; then
+  exec serve -s dist/angular/browser -l 5173
+fi
+
+exec serve -s dist/angular -l 5173

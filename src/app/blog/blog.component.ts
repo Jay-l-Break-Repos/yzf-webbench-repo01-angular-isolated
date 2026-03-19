@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-blog',
@@ -6,9 +6,18 @@ import { Component } from '@angular/core'
   imports: [],
   template: `
     <article>
-      <p>blog works!</p>
+      <h2 class="blog-title">{{ title }}</h2>
+      <p class="blog-detail">{{ detail }}</p>
     </article>
   `,
-  styles: ``,
+  styles: `
+    .blog-title {
+      width: fit-content;
+      font-size: 24px;
+    }
+  `,
 })
-export class BlogComponent {}
+export class BlogComponent {
+  @Input() title: string = ''
+  @Input() detail: string = ''
+}

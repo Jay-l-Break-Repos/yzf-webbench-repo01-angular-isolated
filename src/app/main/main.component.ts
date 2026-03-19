@@ -7,7 +7,7 @@ import { BlogComponent } from '../blog/blog.component'
   imports: [BlogComponent],
   template: `
     <main>
-      <app-blog></app-blog>
+      <app-blog title="Morning" detail="Morning My Friends"></app-blog>
     </main>
   `,
   styles: ``,
